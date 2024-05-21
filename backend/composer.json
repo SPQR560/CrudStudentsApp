@@ -1,0 +1,21 @@
+{
+    "name": "spqr560/students-root",
+    "type": "project",
+    "require": {
+        "slim/slim": "^4.13"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.11",
+        "friendsofphp/php-cs-fixer": "^3.57"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spqr560\\StudentsRoot\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eugene"
+        }
+    ]
+}

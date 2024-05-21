@@ -10,6 +10,9 @@ docker-down-v:
 docker-down:
 	docker compose down
 
+composer-install:
+	docker compose exec php-fpm composer install
+
 
 npm-install:
 	docker compose run --rm node npm install
