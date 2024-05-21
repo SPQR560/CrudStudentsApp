@@ -13,6 +13,8 @@ docker-down:
 composer-install:
 	docker compose exec php-fpm composer install
 
+stan:
+	docker compose exec php-fpm php vendor/bin/phpstan analyse -c phpstan.neon
 
 npm-install:
 	docker compose run --rm node npm install
