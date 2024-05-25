@@ -22,4 +22,4 @@ RUN apk --no-cache add shadow && \
 
 USER www-data
 
-WORKDIR /var/www/backend
+WORKDIR /var/www/app

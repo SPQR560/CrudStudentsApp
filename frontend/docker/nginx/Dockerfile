@@ -1,4 +1,4 @@
 FROM nginx:alpine
 
 ADD ./default.conf /etc/nginx/conf.d/default.conf
-WORKDIR /var/www/frontend
+WORKDIR /var/www/app
