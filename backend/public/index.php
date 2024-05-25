@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use DI\Container;
 use Slim\Factory\AppFactory;
 use Spqr560\StudentsRoot\Layers\Infrastructure\Config\Route\Route;
 use Symfony\Component\Dotenv\Dotenv;
@@ -17,6 +18,9 @@ if (file_exists($projectPath . '/.env')) {
 }
 
 $applicationClosure = function () {
+    $container = new Container();
+    AppFactory::setContainer($container);
+
     $app = AppFactory::create();
     $app->addErrorMiddleware((bool)getenv('BACKEND_DEBUG_MODE'), false, false);
 
