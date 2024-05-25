@@ -2,6 +2,8 @@
 
 Simple crud app with auth for learning vue.js
 
+The backend uses the slim microframework and doctrine ORM
+
 ## Installation
 
 ### backend

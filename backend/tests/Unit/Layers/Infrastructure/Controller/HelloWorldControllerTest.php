@@ -12,7 +12,7 @@ class HelloWorldControllerTest extends TestCase
 {
     public function testHandle(): void
     {
-        // arange
+        // arrange
         $action = new HelloWorldController();
 
         // act
