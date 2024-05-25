@@ -6,12 +6,16 @@ use Slim\Factory\AppFactory;
 use Spqr560\StudentsRoot\Layers\Infrastructure\Config\Route\Route;
 use Symfony\Component\Dotenv\Dotenv;
 
-require_once dirname(__DIR__).'/vendor/autoload.php';
+$projectPath = dirname(__DIR__);
+require_once $projectPath . '/vendor/autoload.php';
 
 $app = AppFactory::create();
 
-//(new Dotenv())->load(dirname(__DIR__) . '/.env');
-
+if (file_exists($projectPath . '/.env')) {
+    (new Dotenv())->usePutenv()->load($projectPath . '/.env');
+} else {
+    throw new RuntimeException('dot env file is not found');
+}
 
 $app->addErrorMiddleware((bool)getenv('BACKEND_DEBUG_MODE'), false, false);
 
