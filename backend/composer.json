@@ -18,6 +18,11 @@
             "Spqr560\\StudentsRoot\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Spqr560\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Eugene"

@@ -27,3 +27,6 @@ cs-fixer:
 
 cs-fixer-fix:
 	docker compose run --rm php-fpm php vendor/bin/php-cs-fixer --config=.php-cs-fixer.php fix -vv
+
+phpunit:
+	docker compose run --rm php-fpm php vendor/bin/phpunit
