@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Spqr560\Tests\Layers\Infrastructure\Controller;
+namespace Spqr560\Tests\Unit\Layers\Infrastructure\Controller;
 
 use Laminas\Diactoros\ServerRequest;
 use PHPUnit\Framework\TestCase;
@@ -12,17 +12,17 @@ class HelloWorldControllerTest extends TestCase
 {
     public function testHandle(): void
     {
-        //arange
+        // arange
         $action = new HelloWorldController();
 
-        //act
+        // act
         $response = $action->handle(new ServerRequest());
 
-        //assert
+        // assert
         self::assertEquals(200, $response->getStatusCode());
         $content = $response->getBody()->getContents();
         self::assertEquals(
-            ['message' => "Hello World, good night and sleep well "],
+            ['message' => 'Hello World, good night and sleep well '],
             json_decode($content, true)
         );
     }
