@@ -1,6 +1,8 @@
 env-copy:
 	cp .env.example .env
 
+init: docker-up composer-install
+
 #docker
 
 docker-up:

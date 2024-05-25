@@ -1,6 +1,8 @@
 env-copy:
 	cp .env.example .env
 
+init: docker-up npm-install front-build
+
 #docker
 
 docker-up:
