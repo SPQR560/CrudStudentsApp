@@ -1,0 +1,17 @@
+services:
+  node:
+    build:
+      context: ./docker/node
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/app
+    tty: true
+
+  frontend-nginx:
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www/app
+    ports:
+      - ${FRONTEND_NGINX_PORT}:80

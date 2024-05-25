@@ -1,6 +1,8 @@
 env-copy:
 	cp .env.example .env
 
+#docker
+
 docker-up:
 	docker compose up -d --build --force-recreate
 
@@ -10,6 +12,7 @@ docker-down-v:
 docker-down:
 	docker compose down
 
+#frontend
 
 npm-install:
 	docker compose run --rm node npm install
