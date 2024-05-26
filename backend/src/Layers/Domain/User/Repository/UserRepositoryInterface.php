@@ -14,4 +14,6 @@ interface UserRepositoryInterface
     public function hasByEmail(UserEmail $email): bool;
 
     public function getByEmail(UserEmail $email): User;
+
+    public function findByEmailAndPassword(UserEmail $email, string $encryptedPassword): ?User;
 }

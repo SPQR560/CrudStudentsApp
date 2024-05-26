@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spqr560\StudentsRoot\Layers\Domain\User\Exception;
 
 use Exception;
 
-class ConfirmTokenIsExpiredException extends Exception
+class UserIsNotExist extends Exception
 {
 }

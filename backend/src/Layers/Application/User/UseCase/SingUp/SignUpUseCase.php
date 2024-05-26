@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Spqr560\StudentsRoot\Layers\Application\User\UseCase;
+namespace Spqr560\StudentsRoot\Layers\Application\User\UseCase\SingUp;
 
 use Random\RandomException;
 use Spqr560\StudentsRoot\Layers\Domain\User\Entity\User;

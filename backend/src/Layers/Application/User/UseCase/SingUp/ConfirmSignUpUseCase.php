@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Spqr560\StudentsRoot\Layers\Application\User\UseCase;
+namespace Spqr560\StudentsRoot\Layers\Application\User\UseCase\SingUp;
 
 use Spqr560\StudentsRoot\Layers\Domain\User\Entity\ValueObject\UserEmail;
 use Spqr560\StudentsRoot\Layers\Domain\User\Exception\BadConfirmToken;
