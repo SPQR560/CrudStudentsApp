@@ -6,7 +6,6 @@ namespace Spqr560\Tests\Unit\Layers\Domain\User\Entity;
 
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
-use Spqr560\StudentsRoot\Layers\Domain\User\Entity\Enum\UserRegistrationStatusEnum;
 use Spqr560\StudentsRoot\Layers\Domain\User\Entity\User;
 use Spqr560\StudentsRoot\Layers\Domain\User\Entity\ValueObject\ConfirmToken;
 use Spqr560\StudentsRoot\Layers\Domain\User\Entity\ValueObject\UserEmail;
@@ -18,14 +17,14 @@ class UserTest extends TestCase
 {
     public function testUserCreate(): void
     {
-        //arrange
+        // arrange
         $id = UserId::generate();
         $date = new DateTimeImmutable();
         $token = new ConfirmToken('token', new DateTimeImmutable('+1 day'));
         $email = new UserEmail('examplemail@test.com');
         $password = 'hashedPassword';
 
-        //act
+        // act
         $user = new User(
             $id,
             $email,
@@ -34,7 +33,7 @@ class UserTest extends TestCase
             $token,
         );
 
-        //assert
+        // assert
         self::assertTrue($user->isRegistrationStatusWaiting());
         self::assertFalse($user->isRegistrationStatusActive());
     }
@@ -45,7 +44,7 @@ class UserTest extends TestCase
      */
     public function testUserConfirm(): void
     {
-        //arrange
+        // arrange
         $id = UserId::generate();
         $date = new DateTimeImmutable();
         $email = new UserEmail('examplemail@test.com');
@@ -59,10 +58,10 @@ class UserTest extends TestCase
             $token,
         );
 
-        //act
+        // act
         $user->setActiveStatus($token->getToken());
 
-        //assert
+        // assert
         self::assertTrue($user->isRegistrationStatusActive());
     }
 }

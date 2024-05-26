@@ -20,5 +20,4 @@ class HelloWorldWebTest extends WebTestCase
             json_decode($content, true)
         );
     }
-
 }

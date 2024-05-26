@@ -15,6 +15,7 @@ return (new PhpCsFixer\Config())
             'identical' => false,
             'less_and_greater' => false,
         ],
+        'global_namespace_import' => false
     ])
     ->setFinder($finder)
     ;

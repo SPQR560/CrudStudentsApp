@@ -17,7 +17,7 @@ class UserEmail
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            throw new InvalidArgumentException($email . ' is not correct email');
+            throw new InvalidArgumentException($email.' is not correct email');
         }
 
         $this->email = $email;

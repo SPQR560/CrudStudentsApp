@@ -22,11 +22,11 @@ class User
     private UserRegistrationStatusEnum $registrationStatus;
 
     public function __construct(
-        UserId            $id,
-        UserEmail         $email,
+        UserId $id,
+        UserEmail $email,
         DateTimeImmutable $lastModifiedDate,
-        string            $encryptedPassword,
-        ConfirmToken      $confirmToken
+        string $encryptedPassword,
+        ConfirmToken $confirmToken
     ) {
         $this->id = $id;
         $this->email = $email;

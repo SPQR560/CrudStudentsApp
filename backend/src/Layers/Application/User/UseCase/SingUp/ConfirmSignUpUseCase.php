@@ -11,7 +11,7 @@ use Spqr560\StudentsRoot\Layers\Domain\User\Exception\UserAlreadyActiveException
 use Spqr560\StudentsRoot\Layers\Domain\User\Repository\UserRepositoryInterface;
 
 /**
- * Registration confirm
+ * Registration confirm.
  */
 class ConfirmSignUpUseCase
 {

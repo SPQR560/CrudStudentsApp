@@ -19,7 +19,7 @@ class WebTestCase extends TestCase
     {
         return $this->request(
             (new ServerRequest())
-                ->withUri(new Uri('http://test' . $uri))
+                ->withUri(new Uri('http://test'.$uri))
                 ->withMethod($method->name)
         );
     }

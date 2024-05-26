@@ -20,7 +20,7 @@ final class ConfirmTokenGenerator
         $liveMinutes = self::LIVE_MINUTES;
         $expiresAt = (new DateTimeImmutable())->modify("+{$liveMinutes} minutes");
 
-        $token  = (string)random_int(10000, 99999);
+        $token  = (string) random_int(10000, 99999);
 
         return new ConfirmToken($token, $expiresAt);
     }
