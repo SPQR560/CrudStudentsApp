@@ -2,8 +2,6 @@
 
 namespace Spqr560\StudentsRoot\Layers\Domain\User\Exception;
 
-use Exception;
-
-class ConfirmTokenIsExpiredException extends Exception
+class ConfirmTokenIsExpiredException extends \Exception
 {
 }

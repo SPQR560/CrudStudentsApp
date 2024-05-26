@@ -28,6 +28,7 @@ class WebTestCase extends TestCase
     {
         $response = $this->createApp()->handle($request);
         $response->getBody()->rewind();
+
         return $response;
     }
 

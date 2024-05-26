@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Spqr560\StudentsRoot\Layers\Application\User\UseCase;
 
-
-use Spqr560\StudentsRoot\Layers\Domain\FlusherInterface;
+use Random\RandomException;
 use Spqr560\StudentsRoot\Layers\Domain\User\Entity\User;
 use Spqr560\StudentsRoot\Layers\Domain\User\Entity\ValueObject\UserEmail;
 use Spqr560\StudentsRoot\Layers\Domain\User\Entity\ValueObject\UserId;
@@ -15,26 +14,27 @@ use Spqr560\StudentsRoot\Layers\Domain\User\Service\ConfirmTokenGenerator;
 use Spqr560\StudentsRoot\Layers\Domain\User\Service\PasswordEncryptor;
 
 /**
- * Registration
+ * Registration.
  */
 class SignUpUseCase
 {
     private UserRepositoryInterface $userRepository;
-    private PasswordEncryptor $passwordHasher;
-    private ConfirmTokenGenerator $confirmTokenizer;
+    private PasswordEncryptor $passwordEncryptor;
+    private ConfirmTokenGenerator $confirmTokenGenerator;
 
     public function __construct(
         UserRepositoryInterface $userRepository,
-        PasswordEncryptor       $passwordHasher,
-        ConfirmTokenGenerator   $confirmTokenizer,
+        PasswordEncryptor $passwordEncryptor,
+        ConfirmTokenGenerator $confirmTokenGenerator,
     ) {
         $this->userRepository = $userRepository;
-        $this->passwordHasher = $passwordHasher;
-        $this->confirmTokenizer = $confirmTokenizer;
+        $this->passwordEncryptor = $passwordEncryptor;
+        $this->confirmTokenGenerator = $confirmTokenGenerator;
     }
 
     /**
      * @throws UserAlreadyExists
+     * @throws RandomException
      */
     public function handle(string $email, string $password): void
     {
@@ -44,14 +44,14 @@ class SignUpUseCase
             throw new UserAlreadyExists('User already exists');
         }
 
-        $hashedPassword = $this->passwordHasher->encrypt($password);
+        $hashedPassword = $this->passwordEncryptor->encrypt($password);
 
         $user = new User(
             UserId::generate(),
             $email,
             new \DateTimeImmutable(),
             $hashedPassword,
-            $this->confirmTokenizer->generate()
+            $this->confirmTokenGenerator->generate()
         );
 
         $this->userRepository->add($user);

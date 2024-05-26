@@ -10,6 +10,8 @@ use Spqr560\StudentsRoot\Layers\Domain\User\Entity\ValueObject\UserEmail;
 interface UserRepositoryInterface
 {
     public function add(User $user): void;
+
     public function hasByEmail(UserEmail $email): bool;
+
     public function getByEmail(UserEmail $email): User;
 }

@@ -25,7 +25,7 @@ class ConfirmTokenGeneratorTest extends TestCase
         self::assertFalse($token->isExpired());
         $stringToken = $token->getToken();
         self::assertIsString($stringToken);
-        $intToken = (int)$stringToken;
+        $intToken = (int) $stringToken;
         self::assertTrue($intToken > 10000 && $intToken < 99999);
     }
 }
