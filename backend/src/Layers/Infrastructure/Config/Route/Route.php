@@ -9,7 +9,7 @@ use Spqr560\StudentsRoot\Layers\Infrastructure\Controller\HelloWorldController;
 
 final class Route
 {
-    public static function initRoutes(App &$app): void
+    public static function init(App &$app): void
     {
         $app->get('/', HelloWorldController::class);
     }
