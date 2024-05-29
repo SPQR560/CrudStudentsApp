@@ -27,7 +27,9 @@ class SingInUseCase
     {
         $encryptedPassword = $this->passwordEncryptor->encrypt($password);
 
-        if ($user = $this->userRepository->findByEmailAndPassword(new UserEmail($email), $encryptedPassword)) {
+        $user = $this->userRepository->findByEmailAndPassword(new UserEmail($email), $encryptedPassword);
+
+        if (!$user) {
             throw new UserIsNotExist('user is not exist');
         }
     }
