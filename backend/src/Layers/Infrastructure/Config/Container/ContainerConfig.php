@@ -6,6 +6,7 @@ namespace Spqr560\StudentsRoot\Layers\Infrastructure\Config\Container;
 
 use DI\Container;
 use Doctrine\DBAL\DriverManager;
+use Doctrine\Migrations\DependencyFactory;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
@@ -24,7 +25,7 @@ readonly class ContainerConfig
     {
         $this->setDoctrineSettings();
         $this->setConsoleSettings();
-
+        $this->setDoctrineMigrationSettings();
 
         return $this->container;
     }
@@ -64,7 +65,13 @@ readonly class ContainerConfig
     private function setConsoleSettings(): void
     {
         $this->container->set('console-setting', function () {
-            return require_once __DIR__ . '/Config/cliCommands.php';
+            return require_once __DIR__ . '/Config/console.php';
         });
+    }
+
+    private function setDoctrineMigrationSettings(): void
+    {
+        $settings = require_once __DIR__ . '/Config/migrations.php';
+        $this->container->set(DependencyFactory::class, $settings[DependencyFactory::class]);
     }
 }
