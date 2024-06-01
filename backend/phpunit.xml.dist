@@ -15,6 +15,7 @@
   </testsuites>
   <php>
     <env name="BACKEND_DEBUG_MODE" value="1"/>
+    <env name="ENV_TYPE" value="test"/>
   </php>
   <source>
     <include>

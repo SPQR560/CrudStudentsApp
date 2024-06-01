@@ -19,8 +19,8 @@ if (file_exists($projectPath.'/.env')) {
 }
 
 $applicationClosure = function () {
-    $container = new Container();
-    ContainerConfig::init($container);
+
+    $container = (new ContainerConfig())->getContainer();
 
     AppFactory::setContainer($container);
     $app = AppFactory::create();

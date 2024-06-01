@@ -35,8 +35,7 @@ class WebTestCase extends TestCase
 
     private function createApp(): App
     {
-        $container = new Container();
-        ContainerConfig::init($container);
+        $container = (new ContainerConfig())->getContainer();
         AppFactory::setContainer($container);
 
         $app = AppFactory::create();
