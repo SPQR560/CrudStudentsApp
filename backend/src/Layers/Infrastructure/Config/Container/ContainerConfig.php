@@ -35,17 +35,7 @@ readonly class ContainerConfig
         $envType = (new EnvTypeGetter())->getEnvType();
 
         $this->container->set('doctrine-config', function () use ($envType) {
-            return [
-                'devMode' => $envType !== EnvTypeEnum::PROD,
-                'connection' => [
-                    'url' => getenv('DB_URL'),
-                    'driver' => 'pdo_pgsql',
-                ],
-                'pathsToXML' => [
-                    'Layers/Infrastructure/Config/Doctrine/xmlSchemaMap.xml',
-                ],
-                'cacheDir' => 'var/cache/doctrine',
-            ];
+            return ;
         });
 
         $this->container->set(EntityManagerInterface::class, function (ContainerInterface $container) {
