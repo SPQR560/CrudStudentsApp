@@ -17,7 +17,7 @@ return [
         'charset' => 'utf-8',
     ],
     'pathsToXML' => [
-        'Layers/Infrastructure/Config/Doctrine/xmlSchemaMap.xml',
+        'src/Layers/Infrastructure/Config/Doctrine',
     ],
     'cacheDir' => 'var/cache/doctrine',
     'types' => [

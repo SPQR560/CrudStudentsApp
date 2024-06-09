@@ -4,7 +4,6 @@ use Doctrine\Migrations;
 use Doctrine\Migrations\Configuration\Configuration;
 use Doctrine\Migrations\DependencyFactory;
 use Doctrine\Migrations\Metadata\Storage\TableMetadataStorageConfiguration;
-use Doctrine\Migrations\Tools\Console\Command;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
 
@@ -13,7 +12,7 @@ return [
         $entityManager = $container->get(EntityManagerInterface::class);
 
         $configuration = new Configuration();
-        $configuration->addMigrationsDirectory('Spqr560\StudentsRoot\DataBase\Migration', 'src/DataBase/Migration');
+        $configuration->addMigrationsDirectory('Spqr560\StudentsRoot\Layers\Infrastructure\Migration', 'src/Layers/Infrastructure/Migration');
         $configuration->setAllOrNothing(true);
         $configuration->setCheckDatabasePlatform(false);
 
