@@ -3,8 +3,35 @@
       xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-     <entity name="Doctrine\Tests\ORM\Mapping\User" table="cms_users">
-     
+     <entity name="Spqr560\StudentsRoot\Layers\Domain\User\Entity\User" table="user_users">
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="doStuffOnPrePersist"/>
+            <lifecycle-callback type="prePersist" method="doOtherStuffOnPrePersistToo"/>
+            <lifecycle-callback type="postPersist" method="doStuffOnPostPersist"/>
+        </lifecycle-callbacks>
+
+        <unique-constraints>
+            <unique-constraint columns="email" name="email_index" />
+        </unique-constraints>
+
+        <id name="id" type="user_user_id" column="id" />
+
+        <field name="lastModifiedDate" column="lastModifiedDate" type="datetime_immutable" />
+
+        <field name="email" column="email" type="user_user_email" />
+
+        <field name="encryptedPassword"  column="encryptedPassword" type="string"  />
+        
+        <field name="confirmToken" class="Spqr560\StudentsRoot\Layers\Domain\User\Entity\ValueObject\ConfirmToken" columnPrefix="confirmToken_"/>
+
+        <field name="registrationStatus" column="registrationStatus" type="string" length="20"/>
+     </entity>
+
+     <entity name="Spqr560\StudentsRoot\Layers\Domain\User\Entity\ValueObject\ConfirmToken" table="user_cofirm_tokens">
+
+        <field name="token" column="token" type="string" />
+
+        <field name="expiresAt" column="expiresAt" type="datetime_immutable" nullable="false"/>
      </entity>
 
 </doctrine-mapping>

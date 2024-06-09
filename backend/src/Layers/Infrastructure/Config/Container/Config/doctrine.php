@@ -9,8 +9,12 @@ use Spqr560\StudentsRoot\Layers\Infrastructure\Config\Doctrine\Type\User\UserIdT
 return [
     'devMode' => $envType !== EnvTypeEnum::PROD,
     'connection' => [
-        'url' => getenv('DB_URL'),
         'driver' => 'pdo_pgsql',
+        'host' => getenv('POSTGRES_HOST'),
+        'user' => getenv('POSTGRES_USER'),
+        'password' => getenv('POSTGRES_PASSWORD'),
+        'dbname' => getenv('POSTGRES_DB'),
+        'charset' => 'utf-8',
     ],
     'pathsToXML' => [
         'Layers/Infrastructure/Config/Doctrine/xmlSchemaMap.xml',

@@ -35,7 +35,7 @@ readonly class ContainerConfig
         $envType = (new EnvTypeGetter())->getEnvType();
 
         $this->container->set('doctrine-config', function () use ($envType) {
-            return ;
+            return require_once __DIR__ . '/Config/doctrine.php';
         });
 
         $this->container->set(EntityManagerInterface::class, function (ContainerInterface $container) {
